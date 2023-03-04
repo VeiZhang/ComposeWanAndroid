@@ -14,8 +14,6 @@ class TextPreViewParameterProvider : PreviewParameterProvider<String> {
 
     override val values: Sequence<String>
         get() = sequenceOf(
-            "Android",
-            "Nexus",
-            "Pixel"
+            "Android"
         )
 }
