@@ -9,10 +9,14 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import com.excellence.compose.wanandroid.ui.theme.ComposeWanAndroidTheme
+import com.excellence.compose.wanandroid.utils.TextPreViewParameterProvider
 
+/**
+ * https://weilu.blog.csdn.net/article/details/121457651?spm=1001.2014.3001.5502
+ */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,32 +49,8 @@ fun Greeting(name: String) {
     name = "default"
 )
 @Composable
-fun DefaultPreview() {
+fun DefaultPreview(@PreviewParameter(TextPreViewParameterProvider::class) name: String) {
     ComposeWanAndroidTheme {
-        Greeting("Android")
-    }
-}
-
-@Preview(
-    showBackground = true,
-    name = "Nexus",
-    device = Devices.NEXUS_10
-)
-@Composable
-fun DefaultPreviewNexus() {
-    ComposeWanAndroidTheme {
-        Greeting(name = "Nexus")
-    }
-}
-
-@Preview(
-    showBackground = false,
-    name = "TV",
-    device = Devices.PIXEL_XL
-)
-@Composable
-fun DefaultPreViewTV() {
-    ComposeWanAndroidTheme {
-        Greeting(name = "Pixel")
+        Greeting(name)
     }
 }
